@@ -121,9 +121,14 @@ export interface CallBackendArguments<TContext> {
   requestOptions: RequestOptions;
 }
 
+export interface OptionOptions {
+  includeExtensions?: boolean
+}
+
 export interface Options<TContext> {
   swaggerSchema: string | JSONSchema;
   callBackend: (args: CallBackendArguments<TContext>) => Promise<any>;
+  opts?: OptionOptions;
 }
 
 export const createSchema = async <TContext>(
@@ -133,7 +138,7 @@ export const createSchema = async <TContext>(
     options.swaggerSchema,
   )) as SwaggerSchema;
   const swaggerSchema = addTitlesToJsonSchemas(schemaWithoutReferences);
-  const endpoints = getAllEndPoints(swaggerSchema);
+  const endpoints = getAllEndPoints(swaggerSchema, options.opts);
   return schemaFromEndpoints(endpoints, options);
 };
 

@@ -4,6 +4,7 @@ import {
   getRequestOptions,
   RequestOptions,
 } from './getRequestOptions';
+import { OptionOptions } from '.';
 
 export interface GraphQLParameters {
   [key: string]: any;
@@ -296,7 +297,7 @@ export interface SwaggerSchema {
 /**
  * Go through schema and grab routes
  */
-export const getAllEndPoints = (schema: SwaggerSchema): Endpoints => {
+export const getAllEndPoints = (schema: SwaggerSchema, options: OptionOptions = {}): Endpoints => {
   const allOperations: Endpoints = {};
   const serverPath = getServerPath(schema);
   Object.keys(schema.paths).forEach(path => {
@@ -312,6 +313,13 @@ export const getAllEndPoints = (schema: SwaggerSchema): Endpoints => {
         ? replaceOddChars(operationObject.operationId)
         : getGQLTypeNameFromURL(method, path);
 
+      // If includeExtensions flag 
+      if (
+        !options.includeExtensions
+        && operationId.indexOf('x-swagger') >= 0
+        ) {
+          return;
+      }
       // [FIX] for when parameters is a child of route and not route[method]
       if (route.parameters) {
         if (operationObject.parameters) {
