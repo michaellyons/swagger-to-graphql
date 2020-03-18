@@ -64,7 +64,7 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "prebuild": "./node_modules/rimraf/bin.js lib",
-    "build": "./node_modules/ttypescript/bin/tsc && echo $?",
+    "build": "cd /var/pavemint-api/node_modules/swagger-to-graphql/node_modules/ttypescript ./bin/tsc && echo $?",
     "lint": "eslint --ext .js,.ts .",
     "lint:fix": "yarn run lint -- --fix",
     "prepare": "yarn run build",
