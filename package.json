@@ -63,8 +63,8 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "prebuild": "./node_modules/rimraf/bin.js lib",
-    "build": "./node_modules/ttypescript/bin/tsc",
+    "prebuild": "DEBUG=* ./node_modules/rimraf/bin.js lib",
+    "build": "DEBUG=* ./node_modules/ttypescript/bin/tsc && echo 'Hello World'",
     "lint": "eslint --ext .js,.ts .",
     "lint:fix": "yarn run lint -- --fix",
     "prepare": "yarn run build",
