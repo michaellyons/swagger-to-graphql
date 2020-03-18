@@ -30,6 +30,9 @@ describe('typeMap', () => {
           name: 'unsupported',
           description: undefined,
           type: GraphQLString,
+          astNode: undefined,
+          defaultValue: undefined,
+          extensions: undefined
         },
       });
     });
@@ -62,6 +65,9 @@ describe('typeMap', () => {
           name: 'unsupported',
           description: undefined,
           type: GraphQLString,
+          astNode: undefined,
+          defaultValue: undefined,
+          extensions: undefined
         },
       });
     });

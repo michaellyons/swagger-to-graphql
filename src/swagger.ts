@@ -318,7 +318,7 @@ export const getAllEndPoints = (schema: SwaggerSchema, options: OptionOptions = 
         !options.includeExtensions
         && operationId.indexOf('x-swagger') >= 0
         ) {
-          return;
+          // return;
       }
       // [FIX] for when parameters is a child of route and not route[method]
       if (route.parameters) {
