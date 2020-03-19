@@ -66,11 +66,11 @@
     "prebuild": "./node_modules/rimraf/bin.js lib",
     "build": "./node_modules/typescript/bin/tsc",
     "lint": "eslint --ext .js,.ts .",
-    "lint:fix": "yarn run lint -- --fix",
-    "prepare": "yarn --verbose run build",
-    "start": "yarn run example",
+    "lint:fix": "npm run lint -- --fix",
+    "prepare": "npm run build",
+    "start": "npm run example",
     "test": "TS_NODE_COMPILER=ttypescript mocha",
-    "test:watch": "yarn run test -- --watch",
+    "test:watch": "npm run test -- --watch",
     "example": "ts-node example/app"
   }
 }
