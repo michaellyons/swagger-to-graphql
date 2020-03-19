@@ -67,7 +67,7 @@
     "build": "./node_modules/typescript/bin/tsc",
     "lint": "eslint --ext .js,.ts .",
     "lint:fix": "yarn run lint -- --fix",
-    "prepare": "yarn run build",
+    "prepare": "yarn run build --verbose",
     "start": "yarn run example",
     "test": "TS_NODE_COMPILER=ttypescript mocha",
     "test:watch": "yarn run test -- --watch",
