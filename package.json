@@ -6,7 +6,6 @@
     "type": "git",
     "url": "https://github.com/michaellyons/swagger-to-graphql.git"
   },
-  "bin": "./bin/swagger-to-graphql",
   "dependencies": {
     "@types/json-schema": "^7.0.3",
     "json-schema-ref-parser": "^7.1.0",
